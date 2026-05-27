@@ -1,4 +1,5 @@
-const BASE = process.env.REACT_APP_ADMIN_API_BASE || 'http://127.0.0.1:8020';
+// const BASE = process.env.REACT_APP_ADMIN_API_BASE || 'http://127.0.0.1:8020';
+const BASE = process.env.REACT_APP_ADMIN_API_BASE || 'http://185.189.12.69:8080/api';
 
 async function request(path, options = {}) {
   const headers = { 'Content-Type': 'application/json', ...(options.headers || {}) };
