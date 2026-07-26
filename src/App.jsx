@@ -58,7 +58,7 @@ const formatMoney = (value) => `${Number(value || 0).toLocaleString('ru-RU')} â‚
 const formatDate = (value) => (value ? new Date(value).toLocaleString('ru-RU') : '');
 
 function LoginScreen({ onLogin }) {
-  const [form, setForm] = useState({ login: 'quality', password: 'quality' });
+  const [form, setForm] = useState({ login: 'quality', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
