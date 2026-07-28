@@ -39,6 +39,10 @@ export const api = {
   }),
   users: (search = '') => request(`/users${search ? `?search=${encodeURIComponent(search)}` : ''}`),
   user: (id) => request(`/users/${id}`),
+  updateUser: (id, payload) => request(`/users/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload),
+  }),
   userOrders: (id) => request(`/users/${id}/orders`),
   paymentProviders: () => request('/payments/providers'),
   paymentSettings: () => request('/payments/settings'),
