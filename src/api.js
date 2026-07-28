@@ -37,7 +37,14 @@ export const api = {
     method: 'PATCH',
     body: JSON.stringify({ status }),
   }),
-  users: (search = '') => request(`/users${search ? `?search=${encodeURIComponent(search)}` : ''}`),
+  users: ({ search = '', enabled = '', hasOrders = '' } = {}) => {
+    const query = new URLSearchParams();
+    if (search) query.set('search', search);
+    if (enabled !== '') query.set('enabled', enabled);
+    if (hasOrders !== '') query.set('has_orders', hasOrders);
+    const suffix = query.toString();
+    return request(`/users${suffix ? `?${suffix}` : ''}`);
+  },
   user: (id) => request(`/users/${id}`),
   updateUser: (id, payload) => request(`/users/${id}`, {
     method: 'PATCH',
